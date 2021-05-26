@@ -18,9 +18,26 @@
 
 2.控件可勾选
 
-如果想设置为可勾选，则设置为：checkboxes属性为：True
+如果想设置为可勾选，则设置为：**checkboxes属性为：True，同时设置OwnerDraw：false**
 
 ![image-20210517112914596](picture/image-20210517112914596.png)
 
 ![image-20210517112848087](picture/image-20210517112848087.png)
+
+## ondata事件
+
+delphi中listview中的ondata事件
+
+> 参考“大宗交易确认委托”界面的stbConfirm.pas中listview中的ondata事件
+>
+> 使用方式：
+>
+> 首先将listview属性OwnerData设为True
+> 然后在listview.ondata事件里利用Item: TListItem参数进行修改
+> 如 
+>  item.Caption:='Caption'+inttostr(item.index);
+>  item.SubItems.Add('subItems1'+inttostr(item.index));
+>  item.SubItems.Add('subItems2'+inttostr(item.index));
+> 最后在其他事件中要显示listview数据时，将
+> ListView1.Items.Count:=100;即可
 
