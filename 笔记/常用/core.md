@@ -12,8 +12,9 @@
 
 - 进入后输入where，即可查看报错信息，例如：(最后一行是ls，依次向上是实际问题)
 
-  ![image-20210423200657669](\typora-user-images\image-20210423200657669.png)
+  ![image-20210720193512775](picture/image-20210720193512775.png)
 
 ## 2.客户的core文件查看方法
 
-![image-20210423185149732](\typora-user-images\image-20210423185149732.png)
+![image-20210720193547153](picture/image-20210720193547153.png)
+

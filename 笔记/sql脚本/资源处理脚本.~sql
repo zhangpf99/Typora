@@ -1,12 +1,34 @@
 --ÓÃ»§±í£¨Î¨Ò»Ë÷Òı£ºoperator_no,group_code2£©
-select a.*,a.rowid from hs_asset.iusertable a where a.operator_no like '04003%' or a.user_name = 'ÕÅÅô·É'
- elig  ÊÊµ±ĞÔBOP
- e  ¸ö¹ÉÆÚÈ¨
- c   ÕË»§2.0
-select a.*,a.rowid from hs_asset.iusertable a where a.group_code2 = 'elig' and (right_level = '2' or a.user_name like 'ÕÅÑåÃ÷' or a.user_name = 'ÅíÑ©%')
-select operator_no,count(*) from hs_asset.iusertable a group by a.operator_no having count(*) = 2
-	123456	2	0	07585	elig	Ì·¾ü	tanjun07585@hundsun.com	ÊÊµ±ĞÔBOP	
+select a.*,a.rowid from hs_asset.iusertable a where a.operator_no like '36132%' or a.user_name like '%¹¢ÓÂ%'
+select a.*,a.rowid from hs_asset.iusertable a where a.operator_no in('28586', '28549', '42894', '42824', '32923', '38044', '36631')
+select a.*,a.rowid from hs_asset.iusertable a where a.group_name  like '%UFT%';
+select a.*,a.rowid from hs_asset.iusertable a where a.pass_right != '0'
+gengyong41638@hundsun.com
 
+ÕÅîÚÁÁ
+select a.*,a.rowid
+from requestpubjour a
+          where a.mod_no = 'M202110250561';
+1	123456	1	0	10909	k	½­Ë®»ª	jiangsh10909@hundsun.com	ÒµÎñ¼¯ÖĞÔËÓªÆ½Ì¨	AAAVVQAAFAAAACLAAi
+
+
+ elig  ÊÊµ±ĞÔBOP
+ i   ÆÚ»õUF2.0
+ e  ¸ö¹ÉÆÚÈ¨¸Ê³Â<>
+ 	123456	1	0	43275	a	¶­Èğ»Ô	dongrh43275@hundsun.com	UF2.0½»Ò×	
+	123456	1	0	43279	a	ºúË§	hushuai43279@hundsun.com	UF2.0½»Ò×	
+	123456	1	0	06930	i	ÔøºéÏé	zenghx@hundsun.com	ÆÚ»õUF2.0	
+	123456	1	0	10490	i	¸Ê³Â	ganchen10490@hundsun.com	ÆÚ»õUF2.0	
+381	123456	1	0	26906	elig		hezg26906@hundsun.com	ÊÊµ±ĞÔBOP	AAAVVQAAFAAAACOABW
+Ö¤È¯¶à»îUFT
+ c   ÕË»§2.0
+ risk		ÊÂÇ°·ç¿Ø	
+
+select a.*,a.rowid from hs_asset.iusertable a where a.group_code2 = 'elig' and (right_level = '2' or a.user_name like 'ÕÅÑåÃ÷' or a.user_name = 'ÅíÑ©%')
+
+select operator_no,count(*) from hs_asset.iusertable a group by a.operator_no having count(*) = 2
+	123456	2	0	07585	elig	Ì·¾ü	tanjun07585@hundsun.com	ÊÊµ±ĞÔBOP
+ÒµÎñ¼¯ÖĞÔËÓªÆ½Ì¨ k
 --²úÆ·±í£¨Î¨Ò»Ë÷Òı£ºproduct_name,group_code2£©
 select a.*,a.rowid from hs_asset.grouptoproduct a
 
@@ -52,27 +74,34 @@ select *;
 --     ¶şÉó×´Ì¬£ºbusiness_status:2, nextlevel:3
 --     ´ıÖ´ĞĞ×´Ì¬£ºbusiness_status:3, nextlevel:-1
 --     Ö´ĞĞÍê³É×´Ì¬£ºbusiness_status:1, nextlevel:-1
-
+-- ÊµÌå±í£º
 -- Á÷Ë®
 select c.serial_no,c.* from hs_asset.stdfield c where c.serial_no in (select a.serial_no  from hs_asset.requestpubjour a where mod_no = '&mod_no' ) 
 
 select a.serial_no,a.* from hs_asset.stdfield a where order by a.serial_no desc;
 
 select a.*,a.rowid from hs_asset.datadictionary a where a.dict_kind = 'D'
-select a.*,a.rowid from hs_asset.requestpubjour a where mod_no like 'M202104131292%' order by serial_no desc, op_remark;
+select a.*,a.rowid from hs_asset.requestpubjour a where mod_no like 'M202105200960%' order by serial_no desc, op_remark;
 -- Êı¾İ¿âÖĞÁĞÃû³Æ²»ÄÜ³¬¹ı30
 select length(field_name),a.*,rowid from hs_asset.stdfield a where length(field_name) > 30
+--ÉóºËÒâ¼û±í
+select a.*,a.rowid from hs_asset.reviewinfo a where a.mod_no = '&mod_no';
+
 -- ËùÓĞÊµÌå
+328182
+select a.*,rowid from hs_asset.menufunc a where function_id like '32818_' or function_id like '250288'
+
+select a.*,rowid from hs_asset.requestpubjour a where serial_no = '&mod_no' order by a.curr_date desc;
 select a.*,b.operator_no,b.business_status,b.nextlevel,product_name from STDFIELD a, requestpubjour b where a.curr_date = 20210426 and a.serial_no = b.serial_no  and b.business_status = '2' and b.nextlevel = '2';
 select a.*,b.operator_no,b.business_status,b.nextlevel,product_name from DATASUBITEM a, requestpubjour b where a.curr_date = 20210426 and a.serial_no = b.serial_no  and b.business_status = '2' and b.nextlevel = '2';
-select max(serial_no) from hs_asset.requestpubjour;
+select max(serial_no) from hs_asset.requestpubjour where  OPERATOR_NO = '38887a';
 select a.*,rowid from hs_asset.requestpubjour a where mod_no = '&mod_no' order by serial_no desc, op_remark;
 select a.*,rowid from hs_asset.menudir a where mod_no =  '&mod_no' order by MENU_SITE ;--²Ëµ¥
 select a.*,rowid from hs_asset.funcdir a where mod_no =  '&mod_no';--¹¦ÄÜ
 select a.*,rowid from hs_asset.menufunc a where mod_no =  '&mod_no';--²Ëµ¥¹¦ÄÜ¶ÔÕÕ
 select a.*,rowid from hs_asset.stdfield a where mod_no =  '&mod_no';--±ê×¼×Ö¶Î
-select a.*,rowid from hs_asset.datasubitem a where mod_no =  '&mod_no';--Êı¾İ×Öµä
-select a.*,rowid from hs_asset.datadictionary a where mod_no =  '&mod_no';--×Öµä×ÓÏî
+select a.*,rowid from hs_asset.datasubitem a where mod_no =  '&mod_no';--×Öµä×ÓÏî
+select a.*,rowid from hs_asset.datadictionary a where mod_no =  '&mod_no';--Êı¾İ×Öµä
 select a.*,rowid from hs_asset.busiflag a where mod_no =  '&mod_no';--ÒµÎñ±êÖ¾
 select a.*,rowid from hs_asset.constantlist a where mod_no =  '&mod_no';--³£Á¿ÁĞ±í
 select a.*,rowid from hs_asset.sysconfigure a where mod_no =  '&mod_no';--ÏµÍ³ÅäÖÃ
@@ -80,17 +109,43 @@ select a.*,rowid from hs_asset.Standarderror a where mod_no =  '&mod_no';--±ê×¼´
 select a.*,rowid from hs_asset.outsideerror a where mod_no =  '&mod_no';--Íâ²¿´íÎóºÅ  
 select a.*,rowid from hs_asset.auditfunction a where mod_no =  '&mod_no';--ÄÚ´æ±í
 
-6	56685	20210518	31911	ÏµÍ³ÅäÖÃĞÂÔöÉêÇë,ÉêÇëÈË=31911,ÅäÖÃ±àºÅ=14153,ÅäÖÃÃû³Æ=¿Í»§¸ßÏ´Ç®·çÏÕµÈ¼¶Öµ	1	M202105122779	-1	sysconfigure	-1	0	0	ÕË»§2.0	AAAVVgAAFAAAnEKAAK
+27	62934	20211008	31976	¹¦ÄÜÄ¿Â¼ĞŞ¸Ä,ÉêÇëÈË=31976,Ä£¿éÃû³Æ=¹ÉÆ±ÆÚÈ¨Òò×Ó·çÏÕ¹ÜÀí(optfactorriskmgr),¹¦ÄÜ±àºÅ=683331,¹¦ÄÜÃû³Æ=ÆÚÈ¨ĞĞÇéÍÆËÍ¸üĞÂ	3	M202109233052	2	funcdir	-1	0	1	¸ö¹ÉÆÚÈ¨	AAAVVgAAFAAAtjjAAy
+39	¹ÉÆ±ÆÚÈ¨Òò×Ó·çÏÕ¹ÜÀí(optfactorriskmgr)	683331	ÆÚÈ¨ĞĞÇéÍÆËÍ¸üĞÂ	CNST_FUNCID_OPTFACTORRISKMGR_OPTPRICEPUSH_UPDATE	0	1	0	0	0	0	8	12	n	0	0	1	20211008 ³ÌËÉ ÉêÇë ²¹ÆëÖ®Ç°Î´Ìí¼Óµ½¹¦ÄÜºÅ×ÊÔ´µÄ¹¦ÄÜºÅ ĞŞ¸Äµ¥£ºM202109233052	 	0	2	M202109233052	62934	20211008	 	AAAVaiAAFAAABy1AAM
 
+14053
+select a.*,rowid from hs_asset.busiflag a where a.flag_no >= 14053 and a.flag_no <=14059
 
-select a.*,rowid from hs_user.hsfunction a where FUNCTION_ID like '21266_';--¹¦ÄÜ
+CNST_FUNCID_CBP_SECUBONDTRADE_INQUIRYEXT_QRY
+
+select a.*,rowid from hs_asset.funcdir a where a.function_id in (683331)
+
+select a.*,rowid from hs_asset.requestpubjour a where serial_no = 62831
+
+select a.*,rowid from hs_asset.sysconfigure a where a.config_no = 70566
+
+select a.*,rowid from hs_asset.sysconfigure a where a.config_no = 7753
+
+select a.*,a.rowid from hs_asset.requestpubjour a where a.mod_no = '&mod_no' and mod_table = 'stdfield' and a.serial_no not in (select serial_no from hs_asset.stdfield c where a.mod_no = '&mod_no')
+
+select a.*,rowid from hs_asset.stdfield a where field_name = 'polling_ctrlstr';
+select a.*,rowid from hs_asset.sysconfigure a WHERE a.config_no = '7739'
+
+select a.*,rowid from hs_asset.sysconfigure a where a.config_no like '70510'
+select a.*,rowid from hs_asset.Standarderror a where a.errorno < 70268 order by errorno desc;
+select a.*,rowid from hs_asset.requestpubjour a where a.op_remark like '%70430%'
+
+15	57739	20210602	08329	²Ëµ¥Ä¿Â¼ĞÂÔö,ÉêÇëÈË=08329,²Ëµ¥±êÌâ=,²Ëµ¥ºÅ=380906	1	M202105101009	-1	menudir	-1	0	0	¶à½ğÈÚ2.0	AAAVVgAAFAAAnF4AAU
+select a.*,rowid from hs_asset.datadictionary a where a.dict_entry = 1351
+
+select a.*,rowid from hs_user.hsfunction a where FUNCTION_ID like '21266_';
 select a.*,rowid from hs_asset.funcdir a where a.function_id like '3328%'
 select a.*,rowid from hs_asset.datasubitem a where a.dict_entry = '3094'
 select a.*,rowid from hs_asset.menudir a where a.menu_site = '_'
 select a.*,rowid from hs_asset.Standarderror a where a.errorno = 89086;
 select a.*,rowid from hs_asset.outsideerror a where error_source =  '333002';--Íâ²¿´íÎóºÅ 
 
-currencydata
+27	62934	20211008	31976	¹¦ÄÜÄ¿Â¼ĞŞ¸Ä,ÉêÇëÈË=31976,Ä£¿éÃû³Æ=¹ÉÆ±ÆÚÈ¨Òò×Ó·çÏÕ¹ÜÀí(optfactorriskmgr),¹¦ÄÜ±àºÅ=683331,¹¦ÄÜÃû³Æ=ÆÚÈ¨ĞĞÇéÍÆËÍ¸üĞÂ	3	M202109233052	2	funcdir	-1	0	1	¸ö¹ÉÆÚÈ¨	AAAVVgAAFAAAtjjAAy
+
 
 
 select a.* from requestpubjour a where mod_no = 'M202104192398' and a.serial_no not in (select b.serial_no from menudir b where mod_no = 'M202103101043' )
@@ -128,16 +183,25 @@ select a.*,a.rowid from hs_asset.datadictionary a where mod_no = 'M202101051018'
 select a.*,rowid from hs_asset.datasubitem a where a.dict_entry = '47000';
 
 -- Í¨ÓÃÊı¾İ --
-select a.*,rowid from hs_asset.requestpubjour a where op_remark like '%ĞŞ¸ÄÍ¨ÓÃÊı¾İ%' and curr_date >20210301;
-select * from hs_asset.currenthead t where t.mod_no =  'M202105170894'; --and business_flag <> '-1';
-select * from hs_asset.currencydata t where t.mod_no = 'M202105170894';-- and business_flag <> '-1';
-select * from hs_asset.currentinfo t where t.mod_no = 'M202105170894';-- and business_flag <> '-1';
-
+--business_flag: 0:É¾³ı£¬1:ĞÂÔö£¬2:ĞŞ¸Ä£¬-1:´¦ÀíÍê³É
+select a.*,rowid from hs_asset.requestpubjour a where op_remark like '%ĞŞ¸ÄÍ¨ÓÃÊı¾İ%' and curr_date >20210801;
+select a.*,rowid from hs_asset.requestpubjour a where a.mod_no = 'M202110111067' and op_remark like '%ĞŞ¸ÄÍ¨ÓÃÊı¾İ%' and curr_date >20210301;
+select t.*,t.rowid from hs_asset.currenthead t where t.mod_no =  'M202110111067' ;
+select t.*,t.rowid from hs_asset.currencydata t where t.mod_no = 'M202110111067';
+select t.*,t.rowid from hs_asset.currentinfo t where t.mod_no = 'M202110111067';
+select a.*,rowid from hs_asset.requestpubjour a where   op_remark like '%ĞŞ¸ÄÍ¨ÓÃÊı¾İ%' and curr_date >20210301;
+select t.*,t.rowid from hs_asset.currentinfo t where t.col_value = '3.0'
  mod_no = 'M202105170894' and
 delete from hs_asset.requestpubjour t where t.mod_no =  '&mod_no' and op_remark = 'ĞŞ¸ÄÍ¨ÓÃÊı¾İ';
 delete from hs_asset.currenthead t where t.mod_no = '&mod_no';
 delete from hs_asset.currencydata t where t.mod_no = '&mod_no';
 delete from hs_asset.currentinfo t where t.mod_no = '&mod_no';
+
+--
+
+update hs_asset.currenthead t set business_flag = -1 where t.mod_no =  'M202107122850'  and business_flag <> '-1';
+update hs_asset.currencydata t set business_flag = -1 where t.mod_no = 'M202107122850'   and business_flag <> '-1';
+update hs_asset.currentinfo t set business_flag = -1 where t.mod_no = 'M202107122850'  and business_flag <> '-1';
 
 -- ÓÃ»§È¨ÏŞÎÊÌâ  elig  Í³Ò»ÊÊµ±ĞÔ
 select a.*,rowid from hs_asset.requestpubjour a where a.operator_no = '13561' order by a.curr_date desc
@@ -227,4 +291,12 @@ select a.*, a.rowid from hs_asset.requestpubjour a where a.mod_no = 'M2021041300
 -- ¶şÉó×´Ì¬£ºbusiness_status:2, nextlevel:3
 -- ´ıÖ´ĞĞ×´Ì¬£ºbusiness_status:3, nextlevel:-1
 -- Ö´ĞĞÍê³É×´Ì¬£ºbusiness_status:1, nextlevel:-1
+1	62934	20211008	31976	¹¦ÄÜÄ¿Â¼ĞŞ¸Ä,ÉêÇëÈË=31976,Ä£¿éÃû³Æ=¹ÉÆ±ÆÚÈ¨Òò×Ó·çÏÕ¹ÜÀí(optfactorriskmgr),¹¦ÄÜ±àºÅ=683331,¹¦ÄÜÃû³Æ=ÆÚÈ¨ĞĞÇéÍÆËÍ¸üĞÂ	1	M202109233052	-1	funcdir	-1	0	0	¸ö¹ÉÆÚÈ¨	AAAVVgAAFAAAtjjAAy
+
+select a.*,a.rowid from
+hs_asset.requestpubjour a
+where a.mod_no = 'M202109233052'
+and a.serial_no not in (select a.serial_no from hs_asset.funcdir a where a.mod_no = 'M202109233052')
+
+
 

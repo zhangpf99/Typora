@@ -41,3 +41,13 @@ delphi中listview中的ondata事件
 > 最后在其他事件中要显示listview数据时，将
 > ListView1.Items.Count:=100;即可
 
+3. ### SortType 属性:默认一般都是0
+
+> 此属性用于设置什么情况下列表视图中的项将重新排列。它设定了如下4 个用户可选值。 
+>  stNone：不重新排序。
+>  stData：项的Data 属性发生变化时重新排序。
+>  stText：项的Caption 属性发生变化时重新排序。
+>  stBoth：项的Data 属性或Caption 属性发生变化时重新排序。
+> ————————————————
+> 版权声明：本文为CSDN博主「_毛毛_」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+> 原文链接：https://blog.csdn.net/yt_maomao/article/details/37725489
